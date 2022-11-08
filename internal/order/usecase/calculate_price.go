@@ -2,7 +2,6 @@ package usecase
 
 import (
 	"github.com/devfullcycle/gointensivo/internal/order/entity"
-	"github.com/devfullcycle/gointensivo/internal/order/infra/database"
 )
 
 type OrderInputDTO struct {
@@ -22,9 +21,9 @@ type CalculateFinalPriceUseCase struct {
 	OrderRepository entity.OrderRepositoryInterface
 }
 
-func NewCalculateFinalPriceUseCase(orderRepository database.OrderRepository) *CalculateFinalPriceUseCase {
+func NewCalculateFinalPriceUseCase(orderRepository entity.OrderRepositoryInterface) *CalculateFinalPriceUseCase {
 	return &CalculateFinalPriceUseCase{
-		OrderRepository: &orderRepository,
+		OrderRepository: orderRepository,
 	}
 }
 
