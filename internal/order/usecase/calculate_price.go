@@ -22,12 +22,12 @@ type OrderOutputDTO struct {
 }
 
 type CalculateFinalPriceUseCase struct {
-	OrderRepository entity.OrderRepositoryInterface
+	OrderRepository database.OrderRepositoryInterface
 }
 
-func NewCalculateFinalPriceUseCase(orderRepository database.OrderRepository) *CalculateFinalPriceUseCase {
+func NewCalculateFinalPriceUseCase(orderRepository database.OrderRepositoryInterface) *CalculateFinalPriceUseCase {
 	return &CalculateFinalPriceUseCase{
-		OrderRepository: &orderRepository,
+		OrderRepository: orderRepository,
 	}
 }
 
