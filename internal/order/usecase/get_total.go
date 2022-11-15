@@ -1,16 +1,18 @@
 package usecase
 
-import "github.com/devfullcycle/gointensivo/internal/order/entity"
+import (
+	"github.com/devfullcycle/gointensivo/internal/order/infra/database"
+)
 
 type GetTotalOutputDTO struct {
 	Total int
 }
 
 type GetTotalUseCase struct {
-	OrderRepository entity.OrderRepositoryInterface
+	OrderRepository database.OrderRepositoryInterface
 }
 
-func NewGetTotalUseCase(orderRepository entity.OrderRepositoryInterface) *GetTotalUseCase {
+func NewGetTotalUseCase(orderRepository database.OrderRepositoryInterface) *GetTotalUseCase {
 	return &GetTotalUseCase{
 		OrderRepository: orderRepository,
 	}
